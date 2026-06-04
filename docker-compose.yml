@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  lighthouse:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+
+    container_name: lighthouse
+
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+    ports:
+      - "8081:8081"
+
+    stdin_open: true
+    tty: true
+
+    command: npm start
